@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+      "angular": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
