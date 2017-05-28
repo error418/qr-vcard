@@ -1,6 +1,6 @@
 {
-  "name": "qr-gen",
-  "version": "1.0.0",
+  "name": "qr-vcard",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
