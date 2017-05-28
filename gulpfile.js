@@ -1,7 +1,7 @@
 var gulp = require("gulp");
 var ngAnnotate = require("gulp-ng-annotate");
 var concat = require("gulp-concat");
-var sass = require('gulp-sass');
+var sass = require("gulp-sass");
 
 var sources = [
 	"ui/app.js",
@@ -13,10 +13,10 @@ var css = [
 ];
 
 
-gulp.task('sass', function () {
-  return gulp.src(css)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+gulp.task("sass", function () {
+	return gulp.src(css)
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulp.dest("./css"));
 });
 
 

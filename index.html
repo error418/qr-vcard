@@ -36,7 +36,7 @@
                 <md-input-container>
                   <input mdInput placeholder="Last Name" ng-model="contact.lastName">
                 </md-input-container>
-                <md-input-container class="md-block">
+                <md-input-container>
                   <label>Birthday</label>
                   <md-datepicker ng-model="contact.birthday"></md-datepicker>
                 </md-input-container>
@@ -75,6 +75,45 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                   <input mdInput placeholder="URL" ng-model="contact.workUrl">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Work Adress" ng-model="contact.workAddress.label">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Street" ng-model="contact.workAddress.street">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="City" ng-model="contact.workAddress.city">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="State" ng-model="contact.workAddress.stateProvince">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Postal Code" ng-model="contact.workAddress.postalCode">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Country" ng-model="contact.workAddress.countryRegion">
+                </md-input-container>
+              </md-content>
+            </md-tab>
+
+            <md-tab label="Social Media">
+              <md-content class="md-padding">
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Facebook URL" ng-model="contact.socialUrls.facebook">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="LinkedIn URL" ng-model="contact.socialUrls.linkedIn">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Twitter URL" ng-model="contact.socialUrls.twitter">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Flickr URL" ng-model="contact.socialUrls.flickr">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="GitHub URL" ng-model="contact.socialUrls.github">
                 </md-input-container>
               </md-content>
             </md-tab>

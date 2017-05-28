@@ -15,7 +15,7 @@ angular.module("QrApp")
 				if(scope.data !== undefined) {
 					var data = {
 						 data: scope.data,
-						 mode: 'byte'
+						 mode: "byte"
 					};
 
 					QRCode.toCanvas(canvas.get(0), [data], function (error) {
