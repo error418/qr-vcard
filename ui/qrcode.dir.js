@@ -13,7 +13,12 @@ angular.module("QrApp")
 
 			scope.$watch("data", function() {
 				if(scope.data !== undefined) {
-					QRCode.toCanvas(canvas.get(0), scope.data, function (error) {
+					var data = {
+						 data: scope.data,
+						 mode: 'byte'
+					};
+
+					QRCode.toCanvas(canvas.get(0), [data], function (error) {
 						if (error) console.log(error);
 					});
 				} else {

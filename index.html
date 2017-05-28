@@ -22,7 +22,7 @@
   </head>
   <body ng-app="QrApp" ng-controller="MainController" ng-cloak>
 
-    <div layout="row" layout-align="center top">
+    <div layout="row" layout-align="top">
         <md-content flex layout-padding>
           <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="Personal">
@@ -90,10 +90,12 @@
           </md-tabs>
         </md-content>
 
-      <qr-code data="vcardData"></qr-code>
+      <div layout="column" layout-align="top">
+        <md-button class="md-raised md-primary" ng-click="createCode()">Generate</md-button>
+        <qr-code data="vcardData"></qr-code>
+      </div>
     </div>
 
-    <md-button class="md-raised md-primary" ng-click="createCode()">Generate</md-button>
 
   </body>
 </html>
