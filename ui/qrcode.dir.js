@@ -23,7 +23,7 @@ angular.module("QrApp")
 					]
 				});
 
-				QRCode.toFile(path, getQrData(scope.data), {
+				QRCode.toFile(path, scope.displayData, {
 				  "type": path.split('.').pop()
 				}, function (error) {
 				  if (error) {
@@ -35,9 +35,9 @@ angular.module("QrApp")
 
 			scope.$watch("data", function() {
 				if(scope.data !== undefined) {
-					var data = getQrData(scope.data);
+					scope.displayData = getQrData(scope.data);
 
-					QRCode.toCanvas(canvas.get(0), data, function (error) {
+					QRCode.toCanvas(canvas.get(0), scope.displayData, function (error) {
 						if (error) {
 							$mdToast.show($mdToast.simple().textContent('Oh no! Something went wrong :('));
 							console.log(error);
