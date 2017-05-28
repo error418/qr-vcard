@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "gulp && node_modules/electron/cli.js ."
+    "start": "gulp && node node_modules/electron/cli.js ."
   },
   "author": "",
   "license": "MIT",
