@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css" />
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="node_modules/angular-material/angular-material.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <script>if (window.module) module = window.module;</script>
+  </head>
+  <body ng-app="QrApp" ng-controller="MainController" ng-cloak>
+
+    <div layout="row" layout-align="top">
+        <md-content flex layout-padding>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Personal">
+              <md-content class="md-padding">
+                <md-input-container>
+                  <input mdInput placeholder="First Name" ng-model="contact.firstName">
+                </md-input-container>
+                <md-input-container>
+                  <input mdInput placeholder="Middle Name" ng-model="contact.middleName">
+                </md-input-container>
+                <md-input-container>
+                  <input mdInput placeholder="Last Name" ng-model="contact.lastName">
+                </md-input-container>
+                <md-input-container>
+                  <label>Birthday</label>
+                  <md-datepicker ng-model="contact.birthday"></md-datepicker>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="URL" ng-model="contact.url">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Home Phone" ng-model="contact.homePhone">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Cellphone" ng-model="contact.cellPhone">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Email" required type="email" ng-model="contact.email">
+                </md-input-container>
+              </md-content>
+            </md-tab>
+
+            <md-tab label="Work">
+              <md-content class="md-padding">
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Title" ng-model="contact.title">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Role" ng-model="contact.role">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Organization" ng-model="contact.organization">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Work Phone" ng-model="contact.workPhone">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Work Email" required type="email" ng-model="contact.workEmail">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="URL" ng-model="contact.workUrl">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Work Adress" ng-model="contact.workAddress.label">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Street" ng-model="contact.workAddress.street">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="City" ng-model="contact.workAddress.city">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="State" ng-model="contact.workAddress.stateProvince">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Postal Code" ng-model="contact.workAddress.postalCode">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Country" ng-model="contact.workAddress.countryRegion">
+                </md-input-container>
+              </md-content>
+            </md-tab>
+
+            <md-tab label="Social Media">
+              <md-content class="md-padding">
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Facebook URL" ng-model="contact.socialUrls.facebook">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="LinkedIn URL" ng-model="contact.socialUrls.linkedIn">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Twitter URL" ng-model="contact.socialUrls.twitter">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="Flickr URL" ng-model="contact.socialUrls.flickr">
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <input mdInput placeholder="GitHub URL" ng-model="contact.socialUrls.github">
+                </md-input-container>
+              </md-content>
+            </md-tab>
+
+            <md-tab label="Misc">
+              <md-content class="md-padding">
+                <md-input-container class="md-block">
+                  <label>Notes</label>
+                  <textarea ng-model="contact.note" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+
+      <div layout="column" layout-align="top">
+        <md-button class="md-raised md-primary" ng-click="createCode()">Generate</md-button>
+        <qr-code data="vcardData"></qr-code>
+      </div>
+    </div>
+
+
+  </body>
+</html>

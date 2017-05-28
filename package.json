@@ -1,0 +1,30 @@
+{
+  "name": "qr-vcard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "gulp && node node_modules/electron/cli.js ."
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "angular-route": "^1.6.4",
+    "electron": "^1.6.8",
+    "jquery": "^3.2.1",
+    "qrcode": "^0.8.1",
+    "vcards-js": "^2.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sass": "^3.1.0",
+    "license-spelunker": "^0.1.3"
+  }
+}
