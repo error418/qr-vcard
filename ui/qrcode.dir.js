@@ -1,6 +1,6 @@
 angular.module("QrApp")
 
-.directive("qrCode", function() {
+.directive("qrCode", function($mdToast) {
 	return {
 		restrict: "E",
 		templateUrl: "ui/partials/qrcode.html",
@@ -11,20 +11,53 @@ angular.module("QrApp")
 			var QRCode = require("qrcode");
 			var canvas = angular.element("canvas");
 
+			scope.codeVisible = false;
+
+			scope.save = function () {
+				var dialog = require('electron').remote.dialog;
+
+				var path = dialog.showSaveDialog({
+					filters: [
+						{"name": "Portable Network Graphics", extensions: ["png"]},
+						{"name": "Scalable Vector Graphics", extensions: ["svg"]}
+					]
+				});
+
+				QRCode.toFile(path, getQrData(scope.data), {
+				  "type": path.split('.').pop()
+				}, function (error) {
+				  if (error) {
+						$mdToast.show($mdToast.simple().textContent('Oh no! Something went wrong :('));
+						console.log(error);
+					}
+				})
+			};
+
 			scope.$watch("data", function() {
 				if(scope.data !== undefined) {
-					var data = {
-						 data: scope.data,
-						 mode: "byte"
-					};
+					var data = getQrData(scope.data);
 
-					QRCode.toCanvas(canvas.get(0), [data], function (error) {
-						if (error) console.log(error);
+					QRCode.toCanvas(canvas.get(0), data, function (error) {
+						if (error) {
+							$mdToast.show($mdToast.simple().textContent('Oh no! Something went wrong :('));
+							console.log(error);
+						}
+						$mdToast.show($mdToast.simple().textContent('Hello!'));
+						scope.codeVisible = !error;
 					});
 				} else {
 					angular.element("canvas").empty();
 				}
 			});
+
+			function getQrData(data) {
+				return [
+					{
+					 data: data,
+					 mode: "byte"
+					}
+				];
+			}
 		}
 	};
 });
