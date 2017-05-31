@@ -3,29 +3,40 @@ var ngAnnotate = require("gulp-ng-annotate");
 var concat = require("gulp-concat");
 var sass = require("gulp-sass");
 
+var targetDir = "static";
+
 var sources = [
-	"ui/app.js",
-	"ui/**/*.js"
+	"src/module.js",
+	"src/**/*.js"
+];
+
+var templates = [
+	"src/**/*.html"
 ];
 
 var css = [
-	"ui/**/*.scss"
+	"src/**/*.scss"
 ];
-
 
 gulp.task("sass", function () {
 	return gulp.src(css)
     .pipe(sass().on("error", sass.logError))
-    .pipe(gulp.dest("./css"));
+    .pipe(gulp.dest(targetDir + "/css"));
 });
 
+gulp.task("template", function () {
+	return gulp.src(templates)
+		.pipe(gulp.dest(targetDir));
+});
 
-gulp.task("default", function () {
+gulp.task("js", function () {
 	return gulp.src(sources)
         .pipe(ngAnnotate())
         .pipe(concat("app.js"))
-        .pipe(gulp.dest("."));
+        .pipe(gulp.dest(targetDir));
 });
+
+gulp.task("default", ["js", "template"]);
 
 gulp.task("watch", ["default"], function () {
 	gulp.watch(sources, ["default"]);

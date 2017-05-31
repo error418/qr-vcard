@@ -1,9 +1,21 @@
+angular.module("QrApp", ["ngRoute", "ngMaterial", "ngAnimate"]);
+
 angular.module("QrApp")
 
-.directive("qrCode", function($mdToast) {
+.controller("MainController", ["$scope", function($scope) {
+	$scope.contact = require("vcards-js")();
+
+	$scope.createCode = function () {
+		$scope.vcardData = $scope.contact.getFormattedString();
+	};
+}]);
+
+angular.module("QrApp")
+
+.directive("qrCode", ["$mdToast", function($mdToast) {
 	return {
 		restrict: "E",
-		templateUrl: "ui/partials/qrcode.html",
+		templateUrl: "qrcode/qrcode.html",
 		scope: {
 			data: "="
 		},
@@ -60,4 +72,4 @@ angular.module("QrApp")
 			}
 		}
 	};
-});
+}]);
