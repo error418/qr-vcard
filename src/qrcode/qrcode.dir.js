@@ -23,6 +23,10 @@ angular.module("QrApp")
 					]
 				});
 
+				if (!path) {
+					return;
+				}
+
 				QRCode.toFile(path, scope.displayData, {
 					"type": path.split(".").pop()
 				}, function (error) {
@@ -42,7 +46,7 @@ angular.module("QrApp")
 							$mdToast.show($mdToast.simple().textContent("Oh no! Something went wrong :("));
 							$log.error(error);
 						}
-						$mdToast.show($mdToast.simple().textContent("Hello!"));
+						$mdToast.show($mdToast.simple().textContent("Code generated."));
 						scope.codeVisible = !error;
 					});
 				} else {
