@@ -1,4 +1,4 @@
-angular.module("QrApp", ["ngRoute", "ngMaterial", "ngAnimate"])
+angular.module("QrApp")
 
 .controller("MainController", function($scope) {
 	$scope.contact = require("vcards-js")();

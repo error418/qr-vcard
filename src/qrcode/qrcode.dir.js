@@ -3,7 +3,7 @@ angular.module("QrApp")
 .directive("qrCode", function($mdToast) {
 	return {
 		restrict: "E",
-		templateUrl: "ui/partials/qrcode.html",
+		templateUrl: "qrcode/qrcode.html",
 		scope: {
 			data: "="
 		},
@@ -22,6 +22,10 @@ angular.module("QrApp")
 						{"name": "Scalable Vector Graphics", extensions: ["svg"]}
 					]
 				});
+
+				if (!path) {
+					return;
+				}
 
 				QRCode.toFile(path, scope.displayData, {
 					"type": path.split(".").pop()
@@ -42,7 +46,7 @@ angular.module("QrApp")
 							$mdToast.show($mdToast.simple().textContent("Oh no! Something went wrong :("));
 							$log.error(error);
 						}
-						$mdToast.show($mdToast.simple().textContent("Hello!"));
+						$mdToast.show($mdToast.simple().textContent("Code generated."));
 						scope.codeVisible = !error;
 					});
 				} else {
