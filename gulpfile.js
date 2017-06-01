@@ -40,6 +40,6 @@ gulp.task("default", ["js", "template"]);
 
 gulp.task("watch", ["default"], function () {
 	gulp.watch(jsSources, ["js"]);
-	gulp.warch(templates, ["template"]);
+	gulp.watch(templates, ["template"]);
 	// gulp.watch(cssSources, ["sass"]);
 });
