@@ -39,5 +39,7 @@ gulp.task("js", function () {
 gulp.task("default", ["js", "template"]);
 
 gulp.task("watch", ["default"], function () {
-	gulp.watch(sources, ["default"]);
+	gulp.watch(sources, ["js"]);
+	gulp.warch(templates, ["template"]);
+	// gulp.watch("css", ["sass"]);
 });
