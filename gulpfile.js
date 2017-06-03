@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var ngAnnotate = require("gulp-ng-annotate");
 var concat = require("gulp-concat");
 var sass = require("gulp-sass");
+var sourcemaps = require('gulp-sourcemaps');
 
 var targetDir = "static";
 
@@ -31,8 +32,10 @@ gulp.task("template", function () {
 
 gulp.task("js", function () {
 	return gulp.src(jsSources)
+				.pipe(sourcemaps.init())
         .pipe(ngAnnotate())
         .pipe(concat("app.js"))
+				.pipe(sourcemaps.write())
         .pipe(gulp.dest(targetDir));
 });
 
