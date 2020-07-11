@@ -20,7 +20,7 @@
     "vcards-js": "^2.4.1"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^7.4.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-ng-annotate": "^2.0.0",
